@@ -26,7 +26,7 @@ function checkFileExists {
 
 # zip contents to be copied over and deployed
 DATE=`date +%Y%m%d`
-FILENAME=deployment_"$FRAMEWORK".zip
+FILENAME=deployment_"$FRAMEWORK"_$DATE.zip
 zip -FSr $FILENAME "$FRAMEWORK-grid"
 
 # $2 is optional skipWarning argument
@@ -69,8 +69,10 @@ checkFileExists $SSH_LOCATION
 curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/
 
 # move file from the archives dir to the framework landing page
-echo "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
 ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
 
 # unzip new contents
-unzip "./$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d ./$FRAMEWORK-grid.ag-grid.com/
+echo "./$FRAMEWORK-grid.ag-grid.com/$FILENAME -d ./$FRAMEWORK-grid.ag-grid.com/"
+#unzip "./$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d ./$FRAMEWORK-grid.ag-grid.com/
+
+
