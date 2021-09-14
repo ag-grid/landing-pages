@@ -69,14 +69,17 @@ checkFileExists $SSH_LOCATION
 # upload file - note that this will be uploaded to the archive dir as this is where this ftps home account is
 # we'll move this file up one in the next step
 echo "Copying zipped deployment to ag-grid"
-curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/ && echo "deployment file copied to ag-grid"
-if [ -d "mv public_html/archive/$FILENAME" ]
+if curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/;
 then
-    echo "File exists!!!!"
-else
-  echo "File doesn't exists????"
+  if [ -d "mv public_html/archive/$FILENAME" ]
+  then
+      echo "File exists!!!!"
+  else
+    echo "File doesn't exists????"
+  fi
 fi
 
+echo "All done"
 # move file from the archives dir to the framework landing page
 #echo "Moving deployment file from archives to root directory"
 #ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./" && echo "deployment file moved to root directory"
