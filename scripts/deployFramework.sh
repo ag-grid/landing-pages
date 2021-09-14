@@ -69,18 +69,12 @@ checkFileExists $SSH_LOCATION
 # upload file - note that this will be uploaded to the archive dir as this is where this ftps home account is
 # we'll move this file up one in the next step
 echo "Copying zipped deployment to ag-grid"
-curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/ && echo "Zipped file copied to ag-grid"
+curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/ && echo "deployment file copied to ag-grid"
 
 # move file from the archives dir to the framework landing page
 echo "Moving deployment file from archives to root directory"
-ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./"
+ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./" && echo "deployment file moved to root directory"
 
-# clear out old contents
-echo "Clearing out contents of $FRAMEWORK-grid.ag-grid.com"
-#ssh -i $SSH_LOCATION ceolter@ag-grid.com "rm -rf /home/ceolter/$FRAMEWORK-grid.ag-grid.com/*"
-
-# unzip new contents
-echo "Unzipping contents of deployment file to $FRAMEWORK-grid.ag-grid.com"
 if [ -d /home/ceolter/$FILENAME ]
 then
     echo "File exists!!!!"
@@ -88,6 +82,13 @@ else
   echo "File doesn't exists????"
 fi
 
-echo "unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/"
+# clear out old contents
+#echo "Clearing out contents of $FRAMEWORK-grid.ag-grid.com"
+#ssh -i $SSH_LOCATION ceolter@ag-grid.com "rm -rf /home/ceolter/$FRAMEWORK-grid.ag-grid.com/*"
+
+# unzip new contents
+#echo "Unzipping contents of deployment file to $FRAMEWORK-grid.ag-grid.com"
+
+#echo "unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/"
 #unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/
 
