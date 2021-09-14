@@ -64,6 +64,12 @@ h1, h2, h3, h4 {
     padding-bottom: 2em;
 }
 
+@media only screen and (max-width: 1200px) {
+    section > .container, header > .container {
+        padding: 0 3vw;
+    }
+}
+
 .padded-top-bottom{
     padding-top: 1em;
     padding-bottom: 1em;
