@@ -72,7 +72,7 @@ echo "Copying zipped deployment to ag-grid"
 curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/
 
 COUNT=5
-while [ ! -d "mv public_html/archive/$FILENAME" && $COUNT -gt 0 ];
+while [ ! -d "mv public_html/archive/$FILENAME" && $COUNT -gt 0 ]
 do
   echo "Waiting..."
   sleep 5
