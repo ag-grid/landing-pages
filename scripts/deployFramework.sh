@@ -87,6 +87,14 @@ then
 else
   echo "File doesn't exists????"
 fi
+sleep 5
+if [ -d /home/ceolter/$FILENAME ]
+then
+    echo "File exists!!!!"
+else
+  echo "File doesn't exists????"
+fi
+
 echo "unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/"
 #unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/
 
