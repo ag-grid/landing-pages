@@ -72,7 +72,6 @@ curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-
 ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
 
 # unzip new contents
-echo "./$FRAMEWORK-grid.ag-grid.com/$FILENAME -d ./$FRAMEWORK-grid.ag-grid.com/"
-#unzip "./$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d ./$FRAMEWORK-grid.ag-grid.com/
+unzip "$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d $FRAMEWORK-grid.ag-grid.com/
 
 
