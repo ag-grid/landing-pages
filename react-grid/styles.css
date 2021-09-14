@@ -1,0 +1,246 @@
+@import "css/head.css";
+@import "css/features.css";
+@import "css/performance.css";
+@import "css/api.css";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #424a4f;
+}
+
+section, header {
+    padding-bottom: 5vw;
+}
+
+@media only screen and (max-width: 500px) {
+    section, header {
+        padding-bottom: 20px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    section, header {
+        padding-bottom: 60px;
+    }
+}
+
+section > .container,
+header > .container,
+footer > .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+p.copyText{
+    padding-bottom: 1em;
+    font-size:1.3em;
+    max-width: 900px;
+    width: auto;
+    margin: 0 auto;
+    line-height: 1.5em;
+    text-align: center;
+    color: white;
+    padding-top:2em;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    section > .container, header > .container {
+        padding: 0 3vw;
+    }
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.top-width-50{
+    width:50%;
+    padding-bottom: 2em;
+}
+
+.padded-top-bottom{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.top-width-50 li{
+    list-style-type: circle;
+}
+
+h2.banner {
+    color: #3b4043;
+    padding: 40px 0;
+    background: #eaeaec;
+    margin-bottom: 2vw;
+    font-family: 'Roboto Slab', Helvetica Neue, Arial, sans-serif;
+    text-align: center;
+    font-size: 3vw;
+}
+
+h3 {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2.5vw;
+}
+
+h4 {
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2.2vw;
+}
+
+@media only screen and (max-width: 800px) {
+    h2 {
+        font-size: 22px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    h2 {
+        font-size: 35px;
+    }
+
+    h3 {
+        font-size: 30px;
+    }
+
+    h4 {
+        font-size: 22px;
+    }
+}
+
+.btn-wrapper {
+    text-align: center;
+    padding-top: 4vw;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    outline: none;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-primary {
+    color: #18a3fa;
+    border: 1px solid #cccbcb;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 2vw;
+}
+
+.btn-primary:hover {
+    color: #0084e7;
+    border-color: #0887d7;
+    background-color: transparent;
+}
+
+@media only screen and (min-width: 1200px) {
+    .btn-wrapper {
+        padding-top: 40px;
+    }
+
+    .btn-primary {
+        padding: 20px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .btn-wrapper {
+        padding-top: 20px;
+    }
+
+    .btn-primary {
+        padding: 10px;
+    }
+}
+
+.btn-alt {
+    color: white;
+}
+
+.btn-alt:hover {
+    color: white;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.closing-argument {
+    background: linear-gradient(to top left, #0084e7, #00407f);
+}
+
+.closing-argument h2 {
+    background: none;
+    color: white;
+    margin: 0 auto;
+    font-weight: 500;
+}
+
+.closing-argument .btn-wrapper {
+    padding-top: 0;
+}
+
+footer {
+    padding: 2.5vw 8vw;
+    background: #f0f7f7;
+    border-top: 2px solid #dde8e8;
+    color: #5d6769;
+}
+
+@media only screen and (max-width: 600px) {
+    footer {
+        padding: 20px 8vw;
+    }
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+footer .copy {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+footer .copy span:first-child {
+    flex: 1 1 auto;
+}
+
+footer .copy span:nth-child(2) {
+    flex: 0 0 200px;
+}
+
+img.centered{
+    position: relative;
+    margin: auto;
+    width: 75%;
+    overflow: hidden;
+}

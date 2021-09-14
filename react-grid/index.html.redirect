@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Data Grid </title>
+    <script>window.location.replace("https://www.ag-grid.com/react-grid/");</script>
+</head>
+<body>
+
+    <h1>
+        AG Grid is an Enterprise React Data Grid
+    </h1>
+    <p><a href='https://www.ag-grid.com/react-grid/'>AG Grid React Data Grid</a></p>
+        
+</body>
+</html>
