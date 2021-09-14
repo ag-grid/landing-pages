@@ -70,4 +70,7 @@ curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-
 
 # move file from the archives dir to the framework landing page
 echo "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
-#ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
+ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
+
+# unzip new contents
+unzip "./$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d ./$FRAMEWORK-grid.ag-grid.com/
