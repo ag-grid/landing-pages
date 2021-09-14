@@ -69,9 +69,11 @@ checkFileExists $SSH_LOCATION
 curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/
 
 # move file from the archives dir to the framework landing page
-ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./$FRAMEWORK-grid.ag-grid.com"
+ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./"
+
+# clear out old contents
+ssh -i $SSH_LOCATION ceolter@ag-grid.com "rm -rf /home/ceolter/$FRAMEWORK-grid.ag-grid.com/*"
 
 # unzip new contents
-unzip "/home/ceolter/$FRAMEWORK-grid.ag-grid.com/$FILENAME" -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/
-
+unzip "/home/ceolter/$FILENAME" -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/
 
