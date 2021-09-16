@@ -68,7 +68,7 @@ checkFileExists $SSH_LOCATION
 
 echo $CREDENTIALS_LOCATION
 echo $SSH_LOCATION
-
+echo $FILENAME
 ## upload file - note that this will be uploaded to the archive dir as this is where this ftps home account is
 ## we'll move this file up one in the next step
 #echo "Copying zipped deployment to ag-grid"
