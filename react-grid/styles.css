@@ -48,6 +48,64 @@ p.copyText{
     padding-top:2em;
 }
 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.fifty-split{
+    width:50%;
+}
+
+.forty-split{
+    width:40%;
+}
+
+.thirty-split{
+    width:30%;
+}
+
+div.description p{
+    padding-bottom: 1em;
+}
+
+div.description ul{
+    padding-left: 2em;
+}
+
+div.description ul li{
+    padding-bottom: 0.2em;
+}
+
+@media only screen and (max-width: 1000px) {
+
+    .flex-container{
+        display: block;
+    }
+
+    .fifty-split, .forty-split, .thirty-split{
+        width:100%;
+    }
+
+}
+
+.contains-responsive-video{
+    position: relative;
+    padding-bottom: 56.25%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.contains-responsive-video iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 @media only screen and (max-width: 1200px) {
     section > .container, header > .container {
