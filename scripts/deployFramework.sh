@@ -66,20 +66,23 @@ fi
 checkFileExists $CREDENTIALS_LOCATION
 checkFileExists $SSH_LOCATION
 
-# upload file - note that this will be uploaded to the archive dir as this is where this ftps home account is
-# we'll move this file up one in the next step
-echo "Copying zipped deployment to ag-grid"
-curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/
+echo $CREDENTIALS_LOCATION
+echo $SSH_LOCATION
 
-# move file from the archives dir to the framework landing page
-echo "Moving deployment file from archives to root directory"
-ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./" && echo "deployment file moved to root directory"
-
-# clear out old contents
-echo "Clearing out contents of $FRAMEWORK-grid.ag-grid.com"
-ssh -i $SSH_LOCATION ceolter@ag-grid.com "rm -rf /home/ceolter/$FRAMEWORK-grid.ag-grid.com/*"
-
-# unzip new contents
-echo "Unzipping contents of deployment file to $FRAMEWORK-grid.ag-grid.com"
-ssh -i $SSH_LOCATION ceolter@ag-grid.com "unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/"
-
+## upload file - note that this will be uploaded to the archive dir as this is where this ftps home account is
+## we'll move this file up one in the next step
+#echo "Copying zipped deployment to ag-grid"
+#curl --netrc-file $CREDENTIALS_LOCATION --ftp-create-dirs -T $FILENAME ftp://ag-grid.com/
+#
+## move file from the archives dir to the framework landing page
+#echo "Moving deployment file from archives to root directory"
+#ssh -i $SSH_LOCATION ceolter@ag-grid.com "mv public_html/archive/$FILENAME ./" && echo "deployment file moved to root directory"
+#
+## clear out old contents
+#echo "Clearing out contents of $FRAMEWORK-grid.ag-grid.com"
+#ssh -i $SSH_LOCATION ceolter@ag-grid.com "rm -rf /home/ceolter/$FRAMEWORK-grid.ag-grid.com/*"
+#
+## unzip new contents
+#echo "Unzipping contents of deployment file to $FRAMEWORK-grid.ag-grid.com"
+#ssh -i $SSH_LOCATION ceolter@ag-grid.com "unzip /home/ceolter/$FILENAME -d /home/ceolter/$FRAMEWORK-grid.ag-grid.com/"
+#
