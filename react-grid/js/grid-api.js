@@ -1,10 +1,13 @@
 let api;
 let columnApi;
+let defaultColumnDefs = {
+    sortable: true,
+}
 
 let columnDefs = [
     {headerName: 'Athlete', field: 'athlete', width: 150},
     {headerName: 'Age', field: 'age', width: 90},
-    {headerName: 'Country', field: 'country', width: 120},
+    {headerName: 'Country', field: 'country', width: 120, filter: 'agTextColumnFilter'},
     {headerName: 'Year', field: 'year', width: 90},
     {headerName: 'Sport', field: 'sport', width: 110},
     {headerName: 'Gold', field: 'gold', width: 100, aggFunc: 'sum'}
@@ -12,10 +15,10 @@ let columnDefs = [
 
 let gridOptions = {
     columnDefs: columnDefs,
+    defaultColDef: defaultColumnDefs,
     enableRangeSelection: true,
-    enableSorting: true,
-    enableFilter: true,
     animateRows: true,
+
 
     // so we don't see sum() in aggregate column headers
     suppressAggFuncInHeader: true
@@ -28,32 +31,33 @@ function callGridApi(action, placeholder) {
 
 const actions = {
     'sort-by-one-column': {
-        code: 'api.setSortModel([\n' +
+        code: 'columnApi.applyColumnState({state:[\n' +
         '    {colId: \'country\', sort: \'asc\'}\n' +
-        ']);',
+        ']});',
         fn() {
-            api.setSortModel([{colId: 'country', sort: 'asc'}]);
+            columnApi.applyColumnState({state:[{colId: 'country', sort: 'asc'}]});
         }
     },
     'sort-by-two-columns': {
-        code: 'api.setSortModel([\n' +
+        code: 'columnApi.applyColumnState({state:[\n' +
         '    {colId: \'country\', sort: \'asc\'},\n' +
         '    {colId: \'year\', sort: \'asc\'}\n' +
-        ']);',
+        ']});',
         fn() {
-            api.setSortModel([{colId: 'country', sort: 'asc'}, {colId: 'year', sort: 'asc'}]);
+            //api.setSortModel([{colId: 'country', sort: 'asc'}, {colId: 'year', sort: 'asc'}]);
+            columnApi.applyColumnState({state:[{colId: 'country', sort: 'asc'}, {colId: 'year', sort: 'asc'}]});
         }
     },
     'clear-sorting': {
-        code: 'api.setSortModel([]);',
+        code: 'columnApi.applyColumnState(\n{defaultState:{sort: null}}\n);',
         fn() {
-            api.setSortModel([]);
+            columnApi.applyColumnState({defaultState:{sort: null}});
         }
     },
     'set-filter-by-one-column': {
-        code: 'api.setFilterModel({country: [\'United States\']});',
+        code: 'api.setFilterModel(\n{country: {filterType:\'text\',\n type:\'equals\', filter:\'United States\'}\n});',
         fn() {
-            api.setFilterModel({country: ['United States']});
+            api.setFilterModel({country: {filterType:'text', type:'equals', filter:'United States'}});
         }
     },
     'remove-filter': {
