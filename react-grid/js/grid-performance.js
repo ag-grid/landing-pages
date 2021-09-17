@@ -88,9 +88,8 @@ const colDefs = [
                 },
                 headerTooltip: 'Example tooltip for Language',
                 filterParams: {
-                    selectAllOnMiniFilter: true,
                     newRowsAction: 'keep',
-                    clearButton: true
+                    buttons: ['reset']
                 }
             },
             {
@@ -112,8 +111,7 @@ const colDefs = [
                 filterParams: {
                     cellRenderer: 'countryCellRenderer',
                     newRowsAction: 'keep',
-                    selectAllOnMiniFilter: true,
-                    clearButton: true
+                    buttons: ['reset']
                 },
                 icons: {
                     sortAscending: '<i class="fa fa-sort-alpha-asc"/>',
@@ -132,9 +130,8 @@ const colDefs = [
                     return 'alphabet';
                 },
                 filterParams: {
-                    selectAllOnMiniFilter: true,
                     newRowsAction: 'keep',
-                    clearButton: true
+                    buttons: ['reset']
                 },
                 enableRowGroup: true,
                 enablePivot: true,
@@ -152,9 +149,8 @@ const colDefs = [
                 floatCell: true,
                 filterParams: {
                     cellRenderer: 'booleanFilterCellRenderer',
-                    selectAllOnMiniFilter: true,
                     newRowsAction: 'keep',
-                    clearButton: true
+                    buttons: ['reset']
                 }
             }
         ]
@@ -224,6 +220,13 @@ months.forEach(function (month) {
     })
 });
 
+const defaultColDefs = {
+    resizable: true,
+    sortable: true,
+    filterable: true,
+    floatingFilter: true
+};
+
 const gridOptions = {
     components: {
         booleanFilterCellRenderer: booleanFilterCellRenderer,
@@ -233,11 +236,8 @@ const gridOptions = {
         booleanCellRenderer: booleanCellRenderer,
         ratingRenderer: ratingRenderer
     },
-    floatingFilter: true,
-    enableColResize: true,
-    enableSorting: true,
-    enableFilter: true,
-    enableRangeSelection: true
+    enableRangeSelection: true,
+    defaultColDef: defaultColDefs
 };
 
 const rowCount = 100000;
