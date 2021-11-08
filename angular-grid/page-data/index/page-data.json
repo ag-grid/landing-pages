@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-index-mdx",
+    "path": "/",
+    "result": {"pageContext":{"frontmatter":{"title":"Angular Data Grid - the fast and feature-rich data grid component from AG Grid","description":"Angular Data Grid component available as both free and enterprise versions. Fast, easy to integrate and customize. Advanced features like aggregation, cell editing, pivoting, excel export and integrated charts out-of-the-box. Dedicated support for the Enterprise version.","image":"/assets/images/more-than-a-data-table-50pc-100-cp.gif","path":"/index","date":"2021-11-05T00:00:00.000Z"}}},
+    "staticQueryHashes": ["4202924991"]}
